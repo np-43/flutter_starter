@@ -14,7 +14,7 @@ class BaseMaterialButton extends MaterialButton{
   final double verticalPadding;
   final double? horizontalPadding;
 
-  BaseMaterialButton(this.buttonText, this.onPressed, {Key? key, this.buttonColor, this.textColor, this.myFont = MyFont.rcBold, this.fontSize, this.borderRadius, this.verticalPadding = 10, this.horizontalPadding}) :
+  BaseMaterialButton(this.buttonText, this.onPressed, {Key? key, this.buttonColor, this.textColor, this.myFont = MyFont.rBold, this.fontSize, this.borderRadius, this.verticalPadding = 10, this.horizontalPadding}) :
         super(
           key: key,
           child: BaseText(text: buttonText, color: textColor ?? Colors.white, myFont: myFont, fontSize: fontSize ?? 20,),

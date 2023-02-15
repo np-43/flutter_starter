@@ -1,7 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_starter/enums/font_enum.dart';
+import 'package:flutter_starter/utilities/general_utility.dart';
+import 'package:flutter_starter/utilities/managers/shared_pref_manager.dart';
 
-void main() {
-  runApp(const MyApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await SharedPrefsManager.initSharedPreference();
+  // await NPFirebaseManager.initFirebase();
+  // await DatabaseManager.initDB();
+  SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+    DeviceOrientation.portraitDown
+  ]).then((_){
+    runApp(const MyApp());
+  });
 }
 
 class MyApp extends StatelessWidget {
@@ -100,7 +113,7 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             Text(
               '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
+              style: GeneralUtility.shared.getTextStyle(color: Colors.amber, bgColor: Colors.transparent, fontSize: 32, myFont: MyFont.rBold),
             ),
           ],
         ),

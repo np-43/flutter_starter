@@ -18,19 +18,12 @@ enum MyFont {
   rBold,
   rLight,
   rMedium,
-  rThin,
-  rcBold,
-  rcRegular,
-  rcLight
+  rThin
 }
 
 extension ExtMyFont on MyFont {
   String get family {
     switch (this) {
-      case MyFont.rcRegular:
-      case MyFont.rcBold:
-      case MyFont.rcLight:
-        return "RobotoCondensed";
       default:
         return "Roboto";
     }
@@ -39,17 +32,14 @@ extension ExtMyFont on MyFont {
   FontWeight get weight {
     switch (this) {
       case MyFont.rLight:
-      case MyFont.rcLight:
         return FontWeight.w300;
       case MyFont.rRegular:
-      case MyFont.rcRegular:
         return FontWeight.normal;
       case MyFont.rMedium:
         return FontWeight.w500;
       case MyFont.rThin:
         return FontWeight.w100;
       case MyFont.rBold:
-      case MyFont.rcBold:
         return FontWeight.w700;
     }
   }
